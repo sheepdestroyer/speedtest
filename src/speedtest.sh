@@ -13,7 +13,8 @@ log_message() {
 
 log_message "Script started."
 
-CONFIG_FILE="test-servers-list.txt" # Assuming it's in the same directory as the script
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+CONFIG_FILE="${SCRIPT_DIR}/test-servers-list.txt" # Path relative to script's dir
 
 if [ ! -f "${CONFIG_FILE}" ]; then
     log_message "ERROR: Configuration file ${CONFIG_FILE} not found."
