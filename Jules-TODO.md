@@ -20,16 +20,16 @@ This document outlines the steps to build the internet speedtest
 *   [x] **Task 2.1: Implement Background Downloads.**
     *   [x] Modify \`src/speedtest.sh\` to launch each \`aria2c\` download process in the background.
     *   [x] Manage Process IDs (PIDs) of backgrounded \`aria2c\` instances.
-*   [ ] **Task 2.2: Monitor Background Processes.**
-    *   [ ] Implement a mechanism to check the status of background \`aria2c\` processes (e.g., still running, completed successfully, failed).
-    *   [ ] Ensure proper cleanup of completed or failed processes.
-*   [ ] **Task 2.3: Structured Output from \`aria2c\`.**
-    *   [ ] Investigate \`aria2c\` options for machine-readable output (e.g., specific log formats, RPC interface if feasible for shell scripting).
-    *   [ ] If direct machine-readable output is complex for pure shell, refine parsing of \`aria2c\`'s standard output to extract key metrics reliably (download speed, percentage complete, ETA per file).
-    *   [ ] Consider using \`aria2c\`'s \`--summary-interval\` and redirecting output to temporary files for each download if that simplifies parsing.
-*   [ ] **Task 2.4: Real-time Data Aggregation.**
-    *   [ ] Develop a method to collect and store the parsed real-time data from all active downloads.
-    *   [ ] This data will serve as the source for the TUI. This might involve writing to temporary structured files.
+*   [x] **Task 2.2: Monitor Background Processes.**
+    *   [x] Implement a mechanism to check the status of background \`aria2c\` processes (e.g., still running, completed successfully, failed).
+    *   [x] Ensure proper cleanup of completed or failed processes.
+*   [x] **Task 2.3: Structured Output from \`aria2c\`.**
+    *   [x] Investigate \`aria2c\` options for machine-readable output (e.g., specific log formats, RPC interface if feasible for shell scripting).
+    *   [x] If direct machine-readable output is complex for pure shell, refine parsing of \`aria2c\`'s standard output to extract key metrics reliably (download speed, percentage complete, ETA per file).
+    *   [x] Consider using \`aria2c\`'s \`--summary-interval\` and redirecting output to temporary files for each download if that simplifies parsing.
+*   [x] **Task 2.4: Real-time Data Aggregation.**
+    *   [x] Develop a method to collect and store the parsed real-time data from all active downloads.
+    *   [x] This data will serve as the source for the TUI. This might involve writing to temporary structured files.
 
 ## Phase 3 : Text-based User Interface (TUI) Development
 *   [ ] **Task 3.1: Research and Select TUI Toolkit.**

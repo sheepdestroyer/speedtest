@@ -12,12 +12,12 @@ This project aims to create a robust command-line internet speed test tool. The 
 *   **Core Scripting:** The primary script (`src/speedtest.sh`) is written in **Bash**, ensuring wide compatibility and access to powerful shell utilities.
 *   **Download Engine:** **`aria2c`** is used for its multi-connection and multi-segment download capabilities, which are essential for accurately benchmarking high-speed connections. The script utilizes options such as `--min-split-size`, `--max-concurrent-downloads`, `--split`, and `--max-connection-per-server` to optimize downloads.
 *   **Configuration:** Test server URLs are managed externally in the `test-servers-list.txt` file, allowing for easy updates and customization.
-*   **Logging:** Detailed logs of script operations and `aria2c` output are stored in `./debug.log`.
-*   **Output & Real-time Statistics:** Currently, `aria2c` provides real-time download progress and speed information directly to the console during its operation. The `README.md` mentions a future goal of graphing real-time stats at 10fps and displaying values in both Gbps and MBps. Achieving highly customized real-time graphing and specific unit conversions might require additional tools or libraries (e.g., `ncurses` for terminal UI, `bc` for calculations, or specialized CLI graphing tools compatible with Fedora 42). This will be explored in later development phases.
-*   **Concurrency:** The script currently processes servers from `test-servers-list.txt` sequentially. The `README.md` mentions threading for simultaneous downloads. True parallel execution of multiple `aria2c` instances against different servers will be a key feature to implement in future phases to maximize test throughput.
+*   **Logging:** Detailed logs of script operations and `aria2c` status messages (including errors and final outputs) are stored in `./debug.log`. Individual `aria2c` process outputs are temporarily stored and cleaned up.
+*   **Output & Real-time Statistics:** The script actively monitors the background `aria2c` download processes. It parses `aria2c`'s summary output (which is captured from each process) to extract per-second download speeds. Furthermore, it calculates and displays a real-time aggregated download speed (in KB/s) for all concurrent downloads, updating this information directly on the console. Future enhancements might include more sophisticated graphing (e.g., TUI based) and display in additional units like Gbps/MBps.
+*   **Concurrency:** The script launches download tasks for multiple servers (from `test-servers-list.txt`) concurrently using background processes. It then monitors these processes, collects individual speed data, and aggregates it to provide a total real-time speed.
 
 - Be based around the following aria2c commmand options :  
-`aria2c --min-split-size=1M --max-concurrent-downloads=16 --split=16 --max-connection-per-server=16 --dir=/dev --out=null --quiet=true $(TEST_URL_BIG_FILE)`
+`aria2c --min-split-size=1M --max-concurrent-downloads=16 --split=16 --max-connection-per-server=16 --dir=/dev --out=/dev/null --summary-interval=1 --remove-control-file=true $(TEST_URL_BIG_FILE)`
 
 - Download directly to `/dev/null` so storage is not a bottleneck
 
