@@ -1,8 +1,8 @@
 ## Enabled URLs
 http://appliwave.testdebit.info/1G.iso
-http://speedtest.milkywan.fr/files/1G.iso
 
 ## Disabled URLs
+#http://speedtest.milkywan.fr/files/1G.iso
 #http://scaleway.testdebit.info/1G.iso
 #http://bouygues.testdebit.info/1G.iso
 #http://paris.cdn.mediactive-network.net/speedtest/1000Mo.dat
