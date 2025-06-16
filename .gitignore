@@ -1,0 +1,20 @@
+# Log files
+*.log
+logs/
+
+# Temporary files created by the script
+# While speedtest_temp_file is in /tmp, good to have a general rule if any local temp files are made
+*temp*
+*tmp*
+speedtest_temp_file
+*.aria2
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# IDE/editor specific files
+.vscode/
+.idea/
+*.swp
+*~
