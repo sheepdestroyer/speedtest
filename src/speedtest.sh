@@ -46,7 +46,7 @@ while IFS= read -r url || [[ -n "$url" ]]; do
     file_counter=$((file_counter+1))
     current_temp_file="/tmp/speedtest_temp_file_${file_counter}"
 
-    aria2c_base_command="aria2c --min-split-size=1M --max-concurrent-downloads=16 --split=16 --max-connection-per-server=16 --dir=/tmp --allow-overwrite=true --file-allocation=none --check-certificate=false --summary-interval=0 --remove-control-file=true"
+    aria2c_base_command="aria2c --min-split-size=1M --max-concurrent-downloads=16 --split=16 --max-connection-per-server=16 --dir=/dev --out=null --allow-overwrite=true --file-allocation=none --check-certificate=false --summary-interval=0 --remove-control-file=true"
     aria2c_command_final="${aria2c_base_command} --out=${current_temp_file} ${url}"
 
     # Log the command that will be executed
