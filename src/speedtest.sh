@@ -49,7 +49,26 @@ grep -E '^[[:space:]]*[^#[:space:]]' "${CONFIG_FILE}" | while IFS= read -r TEST_
 
     # Execute the command. Pipe its stdout and stderr to tee.
     # tee will print to console and append to LOG_FILE.
-    eval "${aria2c_command}" 2>&1 | tee -a "${LOG_FILE}"
+    local -a aria2c_args
+    aria2c_args=(
+        "--min-split-size=1M"
+        "--max-concurrent-downloads=16"
+        "--split=16"
+        "--max-connection-per-server=16"
+        "--dir=/tmp"
+        "--out=speedtest_temp_file"
+        "--allow-overwrite=true"
+        "--file-allocation=none"
+        # Consider removing --check-certificate=false or making it configurable due to security risks (see separate comment)
+        "--check-certificate=false"
+        "--summary-interval=0"
+        "--remove-control-file=true"
+        "${TEST_URL}"
+    )
+
+    log_message "Executing command: aria2c $(printf '%q ' "${aria2c_args[@]}")"
+
+    aria2c "${aria2c_args[@]}" 2>&1 | tee -a "${LOG_FILE}"
     exit_status=${PIPESTATUS[0]} # Get exit status of aria2c, not tee
 
     if [ ${exit_status} -eq 0 ]; then
