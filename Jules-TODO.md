@@ -17,9 +17,9 @@ This document outlines the steps to build the internet speedtest
 *   [x] Keep README and TODO in sync with progress
         
 ## Phase 2 : Background Processing and Advanced Output Parsing
-*   [ ] **Task 2.1: Implement Background Downloads.**
-    *   [ ] Modify \`src/speedtest.sh\` to launch each \`aria2c\` download process in the background.
-    *   [ ] Manage Process IDs (PIDs) of backgrounded \`aria2c\` instances.
+*   [x] **Task 2.1: Implement Background Downloads.**
+    *   [x] Modify \`src/speedtest.sh\` to launch each \`aria2c\` download process in the background.
+    *   [x] Manage Process IDs (PIDs) of backgrounded \`aria2c\` instances.
 *   [ ] **Task 2.2: Monitor Background Processes.**
     *   [ ] Implement a mechanism to check the status of background \`aria2c\` processes (e.g., still running, completed successfully, failed).
     *   [ ] Ensure proper cleanup of completed or failed processes.
