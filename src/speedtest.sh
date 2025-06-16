@@ -1,7 +1,8 @@
 #!/bin/bash
 
 # Define the log file path
-LOG_FILE="./debug.log"
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" &>/dev/null && pwd)"
+LOG_FILE="${SCRIPT_DIR}/../debug.log" # Log in project root
 
 # Function to log messages
 log_message() {
