@@ -1,0 +1,13 @@
+## Enabled URLs
+http://appliwave.testdebit.info/1G.iso
+http://speedtest.milkywan.fr/files/1G.iso
+
+## Disabled URLs
+#http://scaleway.testdebit.info/1G.iso
+#http://bouygues.testdebit.info/1G.iso
+#http://paris.cdn.mediactive-network.net/speedtest/1000Mo.dat
+#http://rbx.proof.ovh.net/files/1Gb.dat
+#http://gra.proof.ovh.net/files/1Gb.dat
+#http://sbg.proof.ovh.net/files/1Gb.dat
+#http://ping-90ms.online.net/1000Mo.dat
+#http://test-debit.free.fr/1048576.rnd
